@@ -8,6 +8,7 @@ import com.microsservicos.productapi.modules.supplier.dto.SupplierResponse;
 import com.microsservicos.productapi.modules.supplier.model.Supplier;
 import com.microsservicos.productapi.modules.supplier.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class SupplierService {
     @Autowired
     private SupplierRepository supplierRepository;
     @Autowired
+    @Lazy
     private ProductService productService;
 
     public List<SupplierResponse> findAll() {
