@@ -1,4 +1,4 @@
-package com.microsservicos.product_api;
+package com.microsservicos.productapi;
 
 
 import org.springframework.http.HttpStatus;
