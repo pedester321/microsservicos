@@ -2,6 +2,10 @@ server:
   port: ${PORT:8081}
 
 spring:
+
+  main:
+    allow-bean-definition-overriding: true
+
   application:
     name: product-api
 
@@ -25,6 +29,28 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
+  rabbitmq:
+    host: ${RABBI_MQ_HOST:localhost}
+    port: ${RABBI_MQ_PORT:5672}
+    username: ${RABBI_MQ_USER:guest}
+    password: ${RABBI_MQ_password:guest}
+
 app-config:
+
+  services:
+    sales: http://${SALES_HOST:localhost}:${SALES_PORT:8082}
+
   secrets:
     api-secret: ${API_SECRET:c2VuaGFkZWNoYXZlZGVhcGlkZWZhdXRhcGlhdXRo}
+
+  rabbit:
+    exchange:
+      product: product.topic
+
+    routingKey:
+      product-stock: product-stock-update.routingKey
+      sales-confirmation: sales-confirmation.routingKey
+
+    queue:
+      product-stock: product-stock-update.queue
+      sales-confirmation: sales-confirmation.queue
