@@ -1,7 +1,6 @@
 package com.microsservicos.productapi.modules.product.model;
 
 
-import com.microsservicos.productapi.modules.category.dto.CategoryRequest;
 import com.microsservicos.productapi.modules.category.model.Category;
 import com.microsservicos.productapi.modules.product.dto.ProductRequest;
 import com.microsservicos.productapi.modules.supplier.model.Supplier;
@@ -10,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDateTime;
 
@@ -23,7 +21,7 @@ import java.time.LocalDateTime;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "NAME", nullable = false)

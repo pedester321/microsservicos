@@ -228,7 +228,7 @@ public class ProductService {
                 .getProducts()
                 .forEach(salesProduct -> {
                     if (isEmpty(salesProduct.getQuantity()) || isEmpty(salesProduct.getProductId())) {
-                        throw new ValidationException("Product  must be informed.");
+                        throw new ValidationException("Product must be informed.");
                     }
                 });
     }
