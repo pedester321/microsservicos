@@ -20,7 +20,7 @@ export function listenToSalesConfirmationQueue() {
           console.info(
             `Receiving message from queue: ${message.content.toString()}`
           );
-          OrderService.updateOrder(message)
+          OrderService.updateOrder(message.content)
         },
         {
           noAck: true,

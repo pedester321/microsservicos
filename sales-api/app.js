@@ -5,6 +5,7 @@ import { createInitialData } from "./src/config/db/InitialData.js";
 import checkToken from "./src/config/auth/checkToken.js";
 import { connectRabbitMq } from "./src/config/rabbitmq/rabbitConfig.js";
 import { sendMessageToProductStockUpdateQueue } from "./src/modules/product/rabbitmq/productStockUpdateSender.js";
+import orderRoutes from "./src/modules/sales/routes/OrderRoutes.js";
 
 const app = express();
 const env = process.env;
@@ -14,7 +15,9 @@ connectMongoDb();
 createInitialData();
 connectRabbitMq();
 
-//app.use(checkToken);
+app.use(express.json());
+app.use(checkToken);
+app.use(orderRoutes);
 
 app.get("/teste", (req, res) => {
   try {

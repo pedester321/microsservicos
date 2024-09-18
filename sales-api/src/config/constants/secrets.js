@@ -8,7 +8,7 @@ export const MONGO_DB_URL = env.MONGO_DB_URL
 
 export const API_SECRET = env.API_SECRET
   ? env.API_SECRET
-  : "c2VuaGFkZWNoYXZlZGVhcGlkZWZhdXRhcGlhdXRo";
+  : "uR1zYg8Z2/3kSbz6rds34SDsdh89jsdfgkjsdfslkdi==";
 
 export const RABBIT_MQ_URL = env.RABBIT_MQ_URL
   ? env.RABBIT_MQ_URL

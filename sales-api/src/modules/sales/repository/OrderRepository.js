@@ -1,4 +1,4 @@
-import Order from "../model/Order";
+import Order from "../model/Order.js";
 
 class OrderRepository {
   async save(order) {
@@ -22,6 +22,15 @@ class OrderRepository {
   async findAll() {
     try {
       return await Order.find();
+    } catch (error) {
+      console.error(error.message);
+      return null;
+    }
+  }
+
+  async findByProductId(productId) {
+    try {
+      return await Order.find({"products.productId" : Number(productId)});
     } catch (error) {
       console.error(error.message);
       return null;
