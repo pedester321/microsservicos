@@ -1,5 +1,5 @@
-const env = process.env
+const env = process.env;
 
 export const API_SECRET = env.API_SECRET
-    ? env.API_SECRET
-    : "c2VuaGFkZWNoYXZlZGVhcGlkZWZhdXRhcGlhdXRo";
+  ? env.API_SECRET
+  : "uR1zYg8Z2/3kSbz6rds34SDsdh89jsdfgkjsdfslkdi==";
