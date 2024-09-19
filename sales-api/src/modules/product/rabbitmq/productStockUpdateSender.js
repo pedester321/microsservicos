@@ -17,7 +17,9 @@ export function sendMessageToProductStockUpdateQueue(message) {
         throw error;
       }
       let jsonStringMessage = JSON.stringify(message);
-      console.info(`Sending message to product update stock: ${jsonStringMessage}`);
+      console.info(
+        `Sending message to product update stock: ${jsonStringMessage}`
+      );
       channel.publish(
         PRODUCT_TOPIC,
         PRODUCT_STOCK_UPDATE_ROUTING_KEY,
@@ -27,4 +29,3 @@ export function sendMessageToProductStockUpdateQueue(message) {
     });
   });
 }
-
