@@ -11,8 +11,6 @@ app.use(express.json());
 app.use(tracing);
 app.use(userRoutes);
 
-//app.use(checkToken)
-
 app.get("/api/status", (req, res) => {
   return res.status(200).json({
     servise: "Auth-API",
