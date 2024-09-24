@@ -19,7 +19,12 @@ class OrderService {
       this.validateOrderData(orderData);
       const { authUser } = req;
       const { authorization } = req.headers;
-      let order = this.createInitialOrderData(orderData, authUser);
+      let order = this.createInitialOrderData(
+        orderData,
+        authUser,
+        transactionid,
+        serviceid
+      );
       await this.validateProductStock(order, authorization, transactionid);
       let createdOrder = await OrderRepository.save(order);
       this.sendMessage(createdOrder, transactionid);
@@ -42,12 +47,14 @@ class OrderService {
     }
   }
 
-  createInitialOrderData(orderData, authUser) {
+  createInitialOrderData(orderData, authUser, transactionid, serviceid) {
     return {
       status: PENDING,
       user: authUser,
       updatedAt: new Date(),
       createdAt: new Date(),
+      transactionid,
+      serviceid,
       products: orderData.products,
     };
   }
@@ -63,7 +70,9 @@ class OrderService {
           await OrderRepository.save(existingOrder);
         }
       } else {
-        console.warn(`The order message was incomplete. TransactionID: ${orderMessage.transactionid}`);
+        console.warn(
+          `The order message was incomplete. TransactionID: ${orderMessage.transactionid}`
+        );
       }
     } catch (error) {
       console.error("Could not parse order message from queue.");

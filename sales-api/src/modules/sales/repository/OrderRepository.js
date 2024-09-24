@@ -30,7 +30,7 @@ class OrderRepository {
 
   async findByProductId(productId) {
     try {
-      return await Order.find({"products.productId" : Number(productId)});
+      return await Order.find({ "products.productId": Number(productId) });
     } catch (error) {
       console.error(error.message);
       return null;

@@ -4,7 +4,6 @@ import { connectMongoDb } from "./src/config/db/mongoDbConfig.js";
 import { createInitialData } from "./src/config/db/InitialData.js";
 import checkToken from "./src/config/auth/checkToken.js";
 import { connectRabbitMq } from "./src/config/rabbitmq/rabbitConfig.js";
-import { sendMessageToProductStockUpdateQueue } from "./src/modules/product/rabbitmq/productStockUpdateSender.js";
 import orderRoutes from "./src/modules/sales/routes/OrderRoutes.js";
 import tracing from "./src/config/tracing.js";
 
