@@ -5,7 +5,6 @@ import UserRepository from "../repository/userRepository.js";
 import * as httpStatus from "../../../config/constants/httpStatus.js";
 import UserException from "../exception/UserException.js";
 import * as secrets from "../../../config/constants/secrets.js";
-import { response } from "express";
 
 class UserService {
   async findByEmail(req) {
