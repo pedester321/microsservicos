@@ -4,7 +4,7 @@ export const NODE_ENV = env.NODE_ENV ? env.NODE_ENV : "node";
 
 export const MONGO_DB_URL = env.MONGO_DB_URL
   ? env.MONGO_DB_URL
-  : "mongodb://localhost:27017/sales-db";
+  : "mongodb://admin:123321@localhost:27017";
 
 export const API_SECRET = env.API_SECRET
   ? env.API_SECRET
