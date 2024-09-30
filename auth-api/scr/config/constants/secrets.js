@@ -9,4 +9,4 @@ export const DB_PORT = env.DB_PORT ? env.DB_PORT : "5432";
 export const DB_NAME = env.DB_NAME ? env.DB_NAME : "auth-db";
 export const DB_USER = env.DB_USER ? env.DB_USER : "admin";
 export const DB_PASSWORD = env.DB_PASSWORD ? env.DB_PASSWORD : "123321";
-
+export const NODE_ENV = env.NODE_ENV ? env.NODE_ENV : "node";
