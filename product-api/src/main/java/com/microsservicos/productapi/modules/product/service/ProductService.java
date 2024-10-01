@@ -189,6 +189,7 @@ public class ProductService {
                     new ObjectMapper().writeValueAsString(response), transactionid, serviceid);
             return ProductSalesResponse.of(product, response.getSalesIds());
         } catch (Exception e) {
+            log.error("Error trying to call sales-API: {}", e.getMessage());
             throw new ValidationException("There was an error trying to get the product sales.");
         }
     }

@@ -9,17 +9,23 @@ const env = process.env;
 const PORT = env.PORT || 8080;
 const CONTAINER_ENV = "container";
 
+app.get("/", (req, res) => {
+  return res.status(200).json(getOkResponse());
+});
+app.get("/api/status", (req, res) => {
+  return res.status(200).json(getOkResponse());
+});
 app.use(express.json());
 app.use(tracing);
 app.use(userRoutes);
 
-app.get("/api/status", (req, res) => {
-  return res.status(200).json({
-    servise: "Auth-API",
+function getOkResponse() {
+  return {
+    servise: "Sales-API",
     status: "up",
     httpStatus: 200,
-  });
-});
+  };
+}
 
 // generateInitialData();
 

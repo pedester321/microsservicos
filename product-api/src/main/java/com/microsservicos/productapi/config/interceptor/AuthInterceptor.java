@@ -23,9 +23,9 @@ public class AuthInterceptor implements HandlerInterceptor {
     private JwtService jwtService;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
-        if(isOptions(request)){
+        if(isOptions(request) || isPublicUrl(request.getRequestURI())){
             return true;
         }
         if(isEmpty(request.getHeader(TRANSACTION_ID))){
@@ -35,6 +35,12 @@ public class AuthInterceptor implements HandlerInterceptor {
         jwtService.validateAuthorization(authorization);
         request.setAttribute(SERVICE_ID, UUID.randomUUID().toString());
         return true;
+    }
+
+    private boolean isPublicUrl(String url){
+        return Urls.PROTECTED_URLS
+                .stream()
+                .noneMatch(url::contains);
     }
 
     private boolean isOptions(HttpServletRequest request){

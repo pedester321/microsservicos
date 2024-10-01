@@ -34,6 +34,7 @@ spring:
     port: ${RABBI_MQ_PORT:5672}
     username: ${RABBI_MQ_USER:guest}
     password: ${RABBI_MQ_password:guest}
+    virtual-host: ${RABBIT_MQ-VHOST:}
 
 app-config:
 
